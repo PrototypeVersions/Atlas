@@ -18,7 +18,7 @@
     wholesale:"https://images.pexels.com/photos/29653988/pexels-photo-29653988/free-photo-of-stack-of-cardboard-boxes-in-warehouse.jpeg?auto=compress&dpr=1&h=900&w=900"
   };
 
-  function photoFor(item){ return item.mode === "wholesale" ? PHOTOS.wholesale : (PHOTOS[item.product] || PHOTOS.Shirt); }
+  function photoFor(item){ return item.photo || (item.mode === "wholesale" ? PHOTOS.wholesale : (PHOTOS[item.product] || PHOTOS.Shirt)); }
   function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
   function placeText(item){ return (!item.state || ["National","Regional"].includes(item.state) || item.place === item.state) ? item.place : `${item.place}, ${item.state}`; }
   function inventory(mode){ return mode === "wholesale" ? DATA.wholesale : DATA.retail; }
@@ -58,7 +58,7 @@
   function productCard(item){
     const sub = item.mode === "wholesale" ? `<small>${item.units} units · ${money.format(item.unitCost)}/unit</small>` : "";
     return `<article class="product-card">
-      <a class="product-photo" href="product.html?id=${encodeURIComponent(item.id)}"><img src="${photoFor(item)}" alt="Photograph representing ${esc(item.product)}" loading="lazy"></a>
+      <a class="product-photo" href="product.html?id=${encodeURIComponent(item.id)}"><img src="${photoFor(item)}" alt="Photograph representing ${esc(item.name)}" loading="lazy"></a>
       <div class="product-info"><div class="product-meta">${esc(item.interest)} · ${esc(placeText(item))}</div><a class="product-name" href="product.html?id=${encodeURIComponent(item.id)}">${esc(item.name)}</a><div class="product-price">${money.format(item.price)}${sub}</div></div>
     </article>`;
   }
@@ -148,7 +148,7 @@
     if(!wrap) return;
     if(!item){wrap.innerHTML=`<div class="empty-state"><h1>Product not found</h1><p>Return to <a href="browse.html">Browse</a>.</p></div>`;return;}
     document.title=`${item.name} — ATLAS`;
-    wrap.innerHTML=`<div class="product-main-photo"><img src="${photoFor(item)}" alt="Photograph representing ${esc(item.product)}"></div><div class="product-copy"><p class="eyebrow">${item.mode === "wholesale" ? "Wholesale inventory" : esc(item.interest)}</p><h1>${esc(item.name)}</h1><div class="price">${money.format(item.price)}</div><p class="description">${esc(item.description)} This is demo inventory for testing the ATLAS prototype.</p><div class="product-details"><div class="detail-row"><span>Product</span><span>${esc(item.product)}</span></div><div class="detail-row"><span>Place</span><span>${esc(placeText(item))}</span></div><div class="detail-row"><span>Style</span><span>${esc(item.vibe)}</span></div>${item.mode==="wholesale"?`<div class="detail-row"><span>Quantity</span><span>${item.units} units</span></div><div class="detail-row"><span>Approx. unit cost</span><span>${money.format(item.unitCost)}</span></div><div class="detail-row"><span>Est. demo retail value</span><span>${money.format(item.retailValue)}</span></div>`:""}</div><button class="button dark wide" id="add-to-cart" type="button">Add to demo cart</button><p style="font-size:.7rem;color:var(--muted);margin-top:12px">Prototype only. No real purchase will be made.</p></div>`;
+    wrap.innerHTML=`<div class="product-main-photo"><img src="${photoFor(item)}" alt="Photograph representing ${esc(item.name)}"></div><div class="product-copy"><p class="eyebrow">${item.mode === "wholesale" ? "Wholesale inventory" : esc(item.interest)}</p><h1>${esc(item.name)}</h1><div class="price">${money.format(item.price)}</div><p class="description">${esc(item.description)} This is demo inventory for testing the ATLAS prototype.</p><div class="product-details"><div class="detail-row"><span>Product</span><span>${esc(item.product)}</span></div><div class="detail-row"><span>Place</span><span>${esc(placeText(item))}</span></div><div class="detail-row"><span>Style</span><span>${esc(item.vibe)}</span></div>${item.mode==="wholesale"?`<div class="detail-row"><span>Quantity</span><span>${item.units} units</span></div><div class="detail-row"><span>Approx. unit cost</span><span>${money.format(item.unitCost)}</span></div><div class="detail-row"><span>Est. demo retail value</span><span>${money.format(item.retailValue)}</span></div>`:""}</div><button class="button dark wide" id="add-to-cart" type="button">Add to demo cart</button><p style="font-size:.7rem;color:var(--muted);margin-top:12px">Prototype only. No real purchase will be made.</p></div>`;
     $("#add-to-cart")?.addEventListener("click",e=>{cart.push(item.id);saveCart();e.currentTarget.textContent="Added to demo cart";setTimeout(()=>e.currentTarget.textContent="Add to demo cart",1000);});
   }
 
