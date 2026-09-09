@@ -7,6 +7,7 @@
   <meta name="description" content="ATLAS — A Merchandise Exchange. A simpler way to find merchandise and wholesale inventory.">
   <title>ATLAS — A Merchandise Exchange</title>
   <link rel="stylesheet" href="styles-v2.css">
+  <link rel="stylesheet" href="landing.css">
   <script src="data.js" defer></script>
   <script src="app-v2.js" defer></script>
 </head>
@@ -21,22 +22,27 @@
   </header>
 
   <main>
-    <section class="home-hero">
-      <div class="hero-copy">
-        <p class="eyebrow">A Merchandise Exchange</p>
-        <h1>Find the things you’re looking for.</h1>
-        <p>Search a large world of merchandise without navigating a large, complicated website. Start with a word, a place, an interest, or simply browse.</p>
-        <form class="hero-search" id="home-search-form">
-          <input id="home-search" type="search" aria-label="Search ATLAS" placeholder="Try Dallas, mugs, baseball, retro…" autocomplete="off">
-          <button type="submit">Search →</button>
+    <section class="home-hero home-hero-refined">
+      <div class="hero-copy hero-copy-refined">
+        <p class="hero-kicker">A Merchandise Exchange</p>
+        <h1 class="atlas-display" aria-label="ATLAS">ATLAS</h1>
+        <p class="hero-statement">Find what you’re looking for.</p>
+        <p class="hero-support">Search by team, place, category, product, or style.</p>
+
+        <form class="hero-search hero-search-refined" id="home-search-form">
+          <input id="home-search" type="search" aria-label="Search ATLAS" placeholder="Search merchandise…" autocomplete="off">
+          <button type="submit" aria-label="Search">Search →</button>
         </form>
-        <div class="home-actions">
+
+        <div class="home-actions home-actions-refined">
           <a class="text-link" href="browse.html">Browse merchandise</a>
           <a class="text-link" href="wholesale.html">Buy for a store</a>
         </div>
       </div>
-      <div class="hero-photo">
-        <img src="https://images.pexels.com/photos/9869067/pexels-photo-9869067.jpeg?auto=compress&dpr=1&h=900&w=900" alt="Canvas tote bag product photograph">
+
+      <div class="hero-photo hero-photo-refined">
+        <img src="https://images.pexels.com/photos/33516464/pexels-photo-33516464/free-photo-of-flat-lay-of-fashion-and-lifestyle-items-with-cap.jpeg?auto=compress&dpr=1&h=1100&w=1100" alt="Editorial flat lay of merchandise including a cap and tote bag">
+        <span class="hero-photo-label">MERCHANDISE / RETAIL / WHOLESALE</span>
       </div>
     </section>
 
