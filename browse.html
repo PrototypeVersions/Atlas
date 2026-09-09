@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3ee">
+  <meta name="description" content="Browse ATLAS merchandise by category, place, product type, or style.">
+  <title>Browse — ATLAS</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-page="browse">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">ATLAS <span>A Merchandise Exchange</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="browse.html" aria-current="page">Browse</a>
+      <a href="wholesale.html">Wholesale</a>
+      <button class="cart-link" id="cart-button" type="button">Cart <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro narrow">
+      <p class="eyebrow">Browse ATLAS</p>
+      <h1>Choose how you want to look.</h1>
+      <p>You only need one starting point. Pick a category below, then narrow things down on the next screen.</p>
+    </section>
+
+    <section class="choice-list" aria-label="Browse options">
+      <a class="choice-row" href="results.html?browse=interest">
+        <span>01</span><div><strong>By interest</strong><small>Sports, music, politics & history, outdoors, gaming and more.</small></div><b>→</b>
+      </a>
+      <a class="choice-row" href="results.html?browse=place">
+        <span>02</span><div><strong>By place</strong><small>City, state, region and local merchandise.</small></div><b>→</b>
+      </a>
+      <a class="choice-row" href="results.html?browse=product">
+        <span>03</span><div><strong>By product</strong><small>Shirts, mugs, hats, jerseys, bags, posters and more.</small></div><b>→</b>
+      </a>
+      <a class="choice-row" href="results.html?browse=vibe">
+        <span>04</span><div><strong>By style</strong><small>Retro, premium, local, nostalgic, unusual and giftable.</small></div><b>→</b>
+      </a>
+    </section>
+  </main>
+
+  <dialog class="cart-dialog" id="cart-dialog"><button class="dialog-close" id="cart-close" type="button">Close</button><h2>Your demo cart</h2><div id="cart-items"></div><div class="cart-total"><span>Total</span><strong id="cart-total">$0.00</strong></div><button class="button dark wide" id="checkout-button" type="button">Prototype checkout</button></dialog>
+</body>
+</html>
