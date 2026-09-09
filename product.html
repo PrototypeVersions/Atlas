@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>Product — ATLAS</title>
+  <link rel="stylesheet" href="styles-v2.css">
+  <script src="data.js" defer></script>
+  <script src="app-v2.js" defer></script>
+</head>
+<body data-page="product">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">ATLAS <span>A Merchandise Exchange</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="browse.html">Browse</a>
+      <a href="wholesale.html">Wholesale</a>
+      <button class="cart-link" id="cart-button" type="button">Cart <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-page" id="product-content"></section>
+  </main>
+
+  <footer class="site-footer"><strong>ATLAS</strong><span>Prototype merchandise and pricing are fictional.</span></footer>
+
+  <dialog class="cart-dialog" id="cart-dialog"><div class="dialog-inner"><div class="dialog-head"><h2>Your demo cart</h2><button class="dialog-close" id="cart-close" type="button">Close</button></div><div id="cart-items"></div><div class="cart-total"><span>Total</span><strong id="cart-total">$0.00</strong></div><button class="button dark wide" id="checkout-button" type="button">Prototype checkout</button></div></dialog>
+</body>
+</html>
