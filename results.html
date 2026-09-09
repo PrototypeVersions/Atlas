@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>Results — ATLAS</title>
+  <link rel="stylesheet" href="styles-v2.css">
+  <script src="data.js" defer></script>
+  <script src="app-v2.js" defer></script>
+</head>
+<body data-page="results">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">ATLAS <span>A Merchandise Exchange</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="browse.html">Browse</a>
+      <a href="wholesale.html">Wholesale</a>
+      <button class="cart-link" id="cart-button" type="button">Cart <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="results-top">
+      <p class="eyebrow" id="results-wholesale-label" hidden>Wholesale</p>
+      <div class="results-heading">
+        <div><h1 id="results-title">Merchandise</h1><p id="results-summary">Loading inventory…</p></div>
+        <div class="results-actions"><button class="minimal-button" id="refine-button" type="button">Refine</button></div>
+      </div>
+      <form class="results-search" id="results-search-form"><input id="results-search-input" type="search" placeholder="Search these products…" aria-label="Search products"><button type="submit">Search →</button></form>
+    </section>
+
+    <section class="selection-screen" id="selection-screen" hidden></section>
+    <section class="product-grid" id="results-grid"></section>
+    <button class="button light" id="show-more" type="button" hidden style="margin:-50px 0 90px">Show more</button>
+  </main>
+
+  <footer class="site-footer"><strong>ATLAS</strong><span>Prototype merchandise and pricing are fictional.</span></footer>
+
+  <dialog class="filter-dialog" id="filter-dialog">
+    <div class="dialog-inner">
+      <div class="dialog-head"><h2>Refine results</h2><button class="dialog-close" id="filter-close" type="button">Close</button></div>
+      <div class="filter-fields">
+        <div class="filter-field"><label for="filter-interest">Interest</label><select id="filter-interest"></select></div>
+        <div class="filter-field"><label for="filter-place">Place</label><select id="filter-place"></select></div>
+        <div class="filter-field"><label for="filter-product">Product</label><select id="filter-product"></select></div>
+        <div class="filter-field"><label for="filter-vibe">Style</label><select id="filter-vibe"></select></div>
+      </div>
+      <div class="dialog-actions"><button class="button dark" id="apply-filters" type="button">Apply</button><button class="button light" id="clear-refine" type="button">Clear</button></div>
+    </div>
+  </dialog>
+
+  <dialog class="cart-dialog" id="cart-dialog"><div class="dialog-inner"><div class="dialog-head"><h2>Your demo cart</h2><button class="dialog-close" id="cart-close" type="button">Close</button></div><div id="cart-items"></div><div class="cart-total"><span>Total</span><strong id="cart-total">$0.00</strong></div><button class="button dark wide" id="checkout-button" type="button">Prototype checkout</button></div></dialog>
+</body>
+</html>
